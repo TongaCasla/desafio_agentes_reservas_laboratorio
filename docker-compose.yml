@@ -1,0 +1,16 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lab-reservations-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - lab_data:/app/data
+    environment:
+      - DATABASE_PATH=/app/data/reservations.db
+
+volumes:
+  lab_data:
+    driver: local
